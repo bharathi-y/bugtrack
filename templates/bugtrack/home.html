@@ -1,0 +1,7 @@
+{% extends 'bugtrack/base.html' %}
+
+{% block body %}
+hello
+<a href="{% url 'tracktool_urls:raise_bugs' %}" class="btn btn-success">Raise Request</a>
+<a href="{% url 'tracktool_urls:all_bugs' %}" class="btn btn-success">All Request</a>
+{% endblock %}

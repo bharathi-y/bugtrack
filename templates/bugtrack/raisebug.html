@@ -1,0 +1,15 @@
+{% extends 'bugtrack/base.html' %}
+
+{% block body %}
+<div class="containers">
+    <form class="form">
+        <table class="table table-boardered">
+            {% csrf_token %}
+            {{ raisebugform.as_table }}
+        </table>
+        <button class="btn btn-success">Submit</button>
+
+    </form>
+
+</div>
+{% endblock %}
