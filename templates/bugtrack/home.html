@@ -1,7 +1,16 @@
 {% extends 'bugtrack/base.html' %}
 
 {% block body %}
-hello
-<a href="{% url 'tracktool_urls:raise_bugs' %}" class="btn btn-success">Raise Request</a>
-<a href="{% url 'tracktool_urls:all_bugs' %}" class="btn btn-success">All Request</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{% url 'tracktool_urls:raise_bugs' %}" class="btn btn-success">Raise Request</a>
+      <a class="nav-item nav-link active " href="{% url 'tracktool_urls:all_bugs' %}" class="btn btn-success">All Request</a>
+
+    </div>
+  </div>
+</nav>
 {% endblock %}

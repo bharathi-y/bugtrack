@@ -11,17 +11,30 @@
 
 <body>
 {% block header %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+
   <a class="navbar-brand" href="#">MidgSpoor</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="{% url 'tracktool_urls:home' %}">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link active " href="{% url 'accounts_urls:userloginpage' %}"> Login </a>
-      <a class="nav-item nav-link active" href="{% url 'accounts_urls:userregistrationpage' %}">SignUp</a>
-      <a class="nav-item nav-link active" href="#" >Support</a>
+      <a class="nav-item nav-link active" href="{% url 'tracktool_urls:home' %} ">home</a>
+        <a class="nav-item nav-link active" href="#" >Support</a>
+
+            {% if user.is_authenticated %}
+                 <div class="form-inline my-2 my-lg-0">
+                <a class="nav-item nav-link active " href="{% url 'accounts_urls:userlogoutpage' %}"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button></a>
+
+                 {{ user.username }}
+                 </div>
+            {% else %}
+                <a class="nav-item nav-link active " href="{% url 'accounts_urls:userloginpage' %}"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">LogIn</button></a>
+
+                 <a class="nav-item nav-link active" href="{% url 'accounts_urls:userregistrationpage' %}"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Signup</button></a>
+            {% endif %}
+
+
     </div>
   </div>
 </nav>

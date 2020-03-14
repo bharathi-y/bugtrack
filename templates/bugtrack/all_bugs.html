@@ -1,4 +1,4 @@
-{% extends 'bugtrack/base.html' %}
+{% extends 'bugtrack/home.html' %}
 {% block body %}
 <div class="container">
     <div class="alert aiert-info ">All Bugs</div>
@@ -13,8 +13,6 @@
             <th>Discrioption</th>
             <th>status</th>
             <th>Update</th>
-<!--            <th>Delete</th>-->
-
 
         </tr>
         </thead>
@@ -28,7 +26,6 @@
             <td>{{ bug.discription }}</td>
             <td>{{ bug.status }}</td>
             <td><a href="{% url 'tracktool_urls:update_request' bug.id %}">Update</a></td>
-<!--            <td><a herf="{% url 'tracktool_urls:delete_request' bug.id %}">Delete</a></td>-->
 
 
         </tr>
