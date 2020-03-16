@@ -1,0 +1,38 @@
+{% extends 'bugtrack/home.html' %}
+{% block body %}
+<div class="container">
+    <div class="alert aiert-info ">All Bugs</div>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>sl no</th>
+            <th>Name</th>
+            <th>Priority</th>
+            <th>Issue</th>
+            <th>Discrioption</th>
+            <th>status</th>
+            <th>Update</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for bug in bugs %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ bug.name }}</td>
+            <td>{{ bug.priority }}</td>
+            <td>{{ bug.issue }}</td>
+            <td>{{ bug.discription }}</td>
+            <td>{{ bug.status }}</td>
+            <td><a href="{% url 'tracktool_urls:update_request' bug.id %}">Update</a></td>
+
+
+        </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

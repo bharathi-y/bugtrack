@@ -6,12 +6,13 @@ from .forms import RaisebugForm
 # Create your views here.
 def home(requset):
     return render(requset,'bugtrack/home.html',context={})
-@login_required
+
+@login_required(login_url='accounts_urls:userloginpage')
 def all_bugs(request):
     bugs=Bugs.objects.all()
     return render (request,'bugtrack/all_bugs.html',context={'bugs':bugs })
 #
-@login_required
+@login_required(login_url='accounts_urls:userloginpage')
 def raise_bugs(request):
     if request.method=='POST':
         raisebugform = RaisebugForm(request.POST)
@@ -42,4 +43,8 @@ def update_request(request,pk=None):
 #     obj.delete()
 #     return redirect('bugtrack/all_bugs.html')
 
+
+def my_bugs(request, pk=None):
+    bugs = Bugs.objects.filter(name__id=pk,)
+    return render(request, 'bugtrack/my_bugs.html', context={'bugs': bugs})
 
