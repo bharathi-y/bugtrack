@@ -21,7 +21,7 @@ def raise_bugs(request):
             f.user=request.user
             f.save()
 
-            return redirect('bugtrack/all_bugs.html')
+            return redirect('tracktool_urls:my_bugs')
     else:
         raisebugform = RaisebugForm()
     return render(request,'bugtrack/raisebug.html',context={'raisebugform': raisebugform })
@@ -33,7 +33,7 @@ def update_request(request,pk=None):
         if editbugform.is_valid():
             editbugform.save()
 
-            return redirect('bugtrack/all_bugs.html')
+            return redirect('tracktool_urls:my_bugs')
     else:
         editbugform = RaisebugForm(instance=obj)
     return render(request,'bugtrack/editbug.html',context={'editbugform': editbugform ,'pk':pk})
@@ -44,7 +44,7 @@ def update_request(request,pk=None):
 #     return redirect('bugtrack/all_bugs.html')
 
 
-def my_bugs(request, pk=None):
-    bugs = Bugs.objects.filter(name__id=pk,)
-    return render(request, 'bugtrack/my_bugs.html', context={'bugs': bugs})
+def my_bugs(request):
+    bugs = Bugs.objects.filter(name=request.user,)
+    return render(request, 'bugtrack/my_bugs.html', context={'bugs': bugs,})
 

@@ -25,7 +25,7 @@ class Bugs(models.Model):
                  ('cl','closed'),
                  ('fw','changedepartment')
                  )
-    name=models.ForeignKey(User,help_text= 'User liked the post',on_delete=models.CASCADE)
+    name=models.ForeignKey(User,help_text= 'User raising  the request',on_delete=models.CASCADE)
     priority=models.CharField(max_length=2,help_text='1 is most prioritised',choices=prioritychoice)
     issue=models.CharField(max_length=50,help_text='select related',choices=issues)
     discription=models.TextField(max_length=300,help_text='elaberate the issue')

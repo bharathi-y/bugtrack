@@ -2,13 +2,12 @@
 
 {% block body %}
 <div class="containers">
-    <form class="form">
+    <form class="form" method="post">
         <table class="table table-boardered">
             {% csrf_token %}
             {{ raisebugform.as_table }}
         </table>
-        <button class="btn btn-success">Submit</button>
-
+      <input type="submit" value="Save" class="btn btn-success">
     </form>
 
 </div>
